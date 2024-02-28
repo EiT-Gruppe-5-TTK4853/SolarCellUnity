@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SunTracker.cs" />
+    <Compile Include="Assets\Scripts\AngleSetter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
