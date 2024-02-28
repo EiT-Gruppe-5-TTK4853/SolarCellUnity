@@ -4,19 +4,20 @@ using UnityEngine;
 public class SunTracker : MonoBehaviour
 {
 
-    public Transform target;
+    public Transform directionalLight;
 
     // Update is called once per frame
     void Update()
     {
         // Ensure there is a target to look at
-        if (target != null)
+        if (directionalLight != null)
         {
-            Vector3 targetDirection = target.position - transform.position;
+            Vector3 sunDirection = directionalLight.forward;
 
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            float yaw = Mathf.Atan2(sunDirection.x, sunDirection.z) * Mathf.Rad2Deg;
+            float pitch = Mathf.Asin(sunDirection.y) * Mathf.Rad2Deg;
 
-            target.rotation = targetRotation;
+            transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
         }
     }
 }
