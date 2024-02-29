@@ -16,13 +16,13 @@ public class SunTracker : MonoBehaviour
 
             float yaw = Mathf.Atan2(sunDirection.x, sunDirection.z) * Mathf.Rad2Deg + 180f;
             float pitch = Mathf.Asin(sunDirection.y) * Mathf.Rad2Deg + 90f;
-            if (pitch > 90f)
+            if (pitch > 80f)
             {
-                pitch = 90f;
+                pitch = 80f;
             }
-            else if (pitch < 0f)
+            else if (pitch < 10f)
             {
-                pitch = 0f;
+                pitch = 10f;
             }
 
             transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
