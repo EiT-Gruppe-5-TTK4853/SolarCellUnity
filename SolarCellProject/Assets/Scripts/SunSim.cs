@@ -12,3 +12,4 @@ public class SunSimulator : MonoBehaviour
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
 }
+
