@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SunTracker.cs" />
     <Compile Include="Assets\Scripts\SunSim.cs" />
+    <Compile Include="Assets\Scripts\RefreshButton.cs" />
     <Compile Include="Assets\Scripts\AngleSetter.cs" />
     <Compile Include="Assets\Scripts\APIaccessor.cs" />
   </ItemGroup>
