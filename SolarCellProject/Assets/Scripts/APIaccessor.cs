@@ -19,11 +19,13 @@ public class APIAccessor : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Start method called");
         StartCoroutine(GetRequest("https://catfact.ninja/fact"));
     }
 
     public void onRefresh()
     {
+        Debug.Log("Refresh button clicked");
         Start();
     }
 
