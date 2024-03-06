@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44958973, g: 0.4996624, b: 0.5756612, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552347360}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab61d92b75095a74f833cb1feab2d08a, type: 3}
   m_Name: 
@@ -1611,6 +1611,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa8def6286fc784ba128570ec475974, type: 3}
+--- !u!1 &654331565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d26d88f880273d043b8f48087ef8e24b, type: 3}
+  m_PrefabInstance: {fileID: 1451288902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &654331567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654331565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928d88653150fff4db1524847f386683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1986521177}
+--- !u!114 &654331568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654331565}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab61d92b75095a74f833cb1feab2d08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
 --- !u!1001 &666998501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2594,7 +2625,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1a5ff92aedc81544bf4c65fda813966, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1757603992}
   m_SourcePrefab: {fileID: 100100000, guid: d1a5ff92aedc81544bf4c65fda813966, type: 3}
 --- !u!1001 &1103500044
 PrefabInstance:
@@ -3270,7 +3304,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d26d88f880273d043b8f48087ef8e24b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654331567}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d26d88f880273d043b8f48087ef8e24b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654331568}
   m_SourcePrefab: {fileID: 100100000, guid: d26d88f880273d043b8f48087ef8e24b, type: 3}
 --- !u!1001 &1495650865
 PrefabInstance:
@@ -3703,6 +3743,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 654331567}
+        m_TargetAssemblyTypeName: APIdata, Assembly-CSharp
+        m_MethodName: onRefresh
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1685799555
 MonoBehaviour:
@@ -3948,6 +4000,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8508e3025d9c844810b83c5607c09e, type: 3}
+--- !u!1 &1757603988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d1a5ff92aedc81544bf4c65fda813966, type: 3}
+  m_PrefabInstance: {fileID: 1100035812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1757603992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757603988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97ba787370ad7f4cb7a0529cdb1643c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiUrl: http://192.168.6.220:5000/solar/position
+  directionalLight: {fileID: 1831992359}
 --- !u!1001 &1757703319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4093,13 +4164,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831992358}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.34554383, y: 0, z: 0, w: 0.9384026}
   m_LocalPosition: {x: 67.91, y: 3.27, z: 38.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.43, y: 0, z: 0}
 --- !u!114 &1831992361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4107,7 +4178,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831992358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3a1ddb911e0c1141b8e09916826cdc3, type: 3}
   m_Name: 
@@ -4788,9 +4859,9 @@ SceneRoots:
   - {fileID: 1961611817}
   - {fileID: 1956598488}
   - {fileID: 1055405514}
-  - {fileID: 1153331114}
   - {fileID: 564406792}
   - {fileID: 1087462786}
+  - {fileID: 1153331114}
   - {fileID: 1305800828}
   - {fileID: 1997522735}
   - {fileID: 1165725777}
