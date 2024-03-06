@@ -2,17 +2,24 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using Newtonsoft.Json;
+using TMPro;
 
 public class SunPositionController : MonoBehaviour
 {
     public string apiUrl = "http://192.168.6.220:5000/solar/position"; // URL of the API
     public Light directionalLight; // Drag your directional light here in the inspector
+    public TextMeshProUGUI sunPositionText;
 
     void Start()
     {
         if (directionalLight == null)
         {
             Debug.LogError("Directional light not assigned.");
+            return;
+        }
+        if (sunPositionText == null)
+        {
+            Debug.LogError("TextMeshProUGUI not assigned.");
             return;
         }
 
@@ -34,6 +41,8 @@ public class SunPositionController : MonoBehaviour
             {
                 // Parse the response
                 SunPositionData sunPosition = JsonConvert.DeserializeObject<SunPositionData>(webRequest.downloadHandler.text);
+
+                sunPositionText.text = $"Latitude: {sunPosition.altitude}\nAzimuth: {sunPosition.azimuth}";
 
                 // Convert azimuth angle to Unity rotation. Assume latitude is used for tilt.
                 Quaternion sunRotation = Quaternion.Euler(sunPosition.altitude* Mathf.Rad2Deg, (sunPosition.azimuth + Mathf.PI)*Mathf.Rad2Deg, 0);
