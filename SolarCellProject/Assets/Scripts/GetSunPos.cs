@@ -42,7 +42,7 @@ public class SunPositionController : MonoBehaviour
                 // Parse the response
                 SunPositionData sunPosition = JsonConvert.DeserializeObject<SunPositionData>(webRequest.downloadHandler.text);
 
-                sunPositionText.text = $"Latitude: {sunPosition.altitude}\nAzimuth: {sunPosition.azimuth}";
+                sunPositionText.text = $"Altitude: {sunPosition.altitude * Mathf.Rad2Deg} deg\nAzimuth: {(sunPosition.azimuth + Mathf.PI) * Mathf.Rad2Deg} deg";
 
                 // Convert azimuth angle to Unity rotation. Assume latitude is used for tilt.
                 Quaternion sunRotation = Quaternion.Euler(sunPosition.altitude* Mathf.Rad2Deg, (sunPosition.azimuth + Mathf.PI)*Mathf.Rad2Deg, 0);
