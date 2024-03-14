@@ -15,7 +15,7 @@ public class SolarPanelDataSender : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(sendData), 0f, 5f);
+        InvokeRepeating(nameof(sendData), 0f, 5f); // Call sendData every 5 seconds
     }
 
     IEnumerator SendSolarPanelData()
