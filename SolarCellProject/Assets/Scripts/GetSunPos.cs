@@ -28,7 +28,7 @@ public class SunPositionController : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating(nameof(getData), 0f, 15f); // Call getData every 15 seconds
+        InvokeRepeating(nameof(getData), 0f, 10f); // Call getData every 10 seconds
     }
 
     IEnumerator GetSunPosition()
@@ -39,9 +39,19 @@ public class SunPositionController : MonoBehaviour
             yield return webRequest.SendWebRequest();
 
             if (webRequest.result != UnityWebRequest.Result.Success)
-            {
+            {   
+                long statusCode = webRequest.responseCode;
+                string statusMessage;
+                if (statusCode == 0)
+                {
+                    statusMessage = "Server error. \nStatus code: 500";
+                }
+                else
+                {
+                    statusMessage = $"Error. \nStatus code: {statusCode}";
+                }
                 Debug.LogError("Error fetching sun position: " + webRequest.error);
-                sunPositionText.text = "Error fetching sun position";
+                sunPositionText.text = $"Error fetching sun position \n{statusMessage}";
             }
             else
             {
