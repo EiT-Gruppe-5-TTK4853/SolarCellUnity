@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Newtonsoft.Json;
 using System.Collections;
 using TMPro;
+using UnityEditor.PackageManager;
 
 public class APIdata : MonoBehaviour
 {
@@ -22,17 +23,16 @@ public class APIdata : MonoBehaviour
 
     public TextMeshProUGUI text; // Assign this in the inspector with your UI Text
 
-    void Start()
+    void getData()
     {
         Debug.Log("Start method called");
         // Assuming you have a different URI that returns the Root object data
         StartCoroutine(GetRequest("http://192.168.6.220:5000/solar"));
     }
 
-    public void onRefresh()
+    public void Start()
     {
-        Debug.Log("Refresh button clicked");
-        Start();
+        InvokeRepeating(nameof(getData), 0f, 10f); // Call getData every 10 seconds
     }
 
     IEnumerator GetRequest(string uri)
@@ -45,7 +45,21 @@ public class APIdata : MonoBehaviour
             {
                 case UnityWebRequest.Result.ConnectionError:
                 case UnityWebRequest.Result.DataProcessingError:
+                    long statusCode = webRequest.responseCode;
+                    string statusMessage;
+                    if (statusCode == 0)
+                    {
+                        statusMessage = "Server error. \nStatus code: 500";
+                    }
+                    else
+                    {
+                        statusMessage = $"Error. Status code: {statusCode}";
+                    }
+
+                    Debug.LogError(statusMessage);
+                    text.text = statusMessage;
                     Debug.LogError($"Something went wrong: {webRequest.error}");
+                    text.text = $"Error fetching data \n{statusMessage} ";
                     break;
                 case UnityWebRequest.Result.Success:
                     Data data = JsonConvert.DeserializeObject<Data>(webRequest.downloadHandler.text);

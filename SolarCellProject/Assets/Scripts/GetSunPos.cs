@@ -10,7 +10,7 @@ public class SunPositionController : MonoBehaviour
     public Light directionalLight; // Drag your directional light here in the inspector
     public TextMeshProUGUI sunPositionText;
 
-    void Start()
+    void getData()
     {
         if (directionalLight == null)
         {
@@ -26,6 +26,11 @@ public class SunPositionController : MonoBehaviour
         StartCoroutine(GetSunPosition());
     }
 
+    void Start()
+    {
+        InvokeRepeating(nameof(getData), 0f, 10f); // Call getData every 10 seconds
+    }
+
     IEnumerator GetSunPosition()
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(apiUrl))
@@ -34,8 +39,19 @@ public class SunPositionController : MonoBehaviour
             yield return webRequest.SendWebRequest();
 
             if (webRequest.result != UnityWebRequest.Result.Success)
-            {
+            {   
+                long statusCode = webRequest.responseCode;
+                string statusMessage;
+                if (statusCode == 0)
+                {
+                    statusMessage = "Server error. \nStatus code: 500";
+                }
+                else
+                {
+                    statusMessage = $"Error. \nStatus code: {statusCode}";
+                }
                 Debug.LogError("Error fetching sun position: " + webRequest.error);
+                sunPositionText.text = $"Error fetching sun position \n{statusMessage}";
             }
             else
             {

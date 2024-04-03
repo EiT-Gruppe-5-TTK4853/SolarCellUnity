@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 public class SolarPanelDataSender : MonoBehaviour
 {
     public GameObject solarPanelObject; // Assign your solar panel object in the inspector
+    public Light directionalLight; // Assign your directional light in the inspector
     private string url = "http://192.168.6.220:5000/solar/move"; // Your API endpoint
 
     void sendData()
@@ -15,13 +16,13 @@ public class SolarPanelDataSender : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(sendData), 0f, 5f);
+        InvokeRepeating(nameof(sendData), 0f, 60f); // Call sendData every 60 seconds
     }
 
     IEnumerator SendSolarPanelData()
     {
         // Extract pitch and yaw from the solar panel's rotation
-        Vector3 rotation = solarPanelObject.transform.localEulerAngles;
+        Vector3 rotation = directionalLight.transform.localEulerAngles;
         float pitch = rotation.x;
         float yaw = rotation.y;
 
